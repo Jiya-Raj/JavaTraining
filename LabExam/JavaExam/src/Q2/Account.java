@@ -24,9 +24,9 @@ public class Account {
 	public void input() {
        owner.input();
        Scanner sc=new Scanner(System.in);
-       System.out.println("Enter Balance: ");
+       System.out.print("Enter Balance: ");
        this.balance=sc.nextInt();
-       System.out.println("Enter Number: ");
+       System.out.print("Enter Number: ");
        this.number=sc.nextLine();
        sc.close();
 	}

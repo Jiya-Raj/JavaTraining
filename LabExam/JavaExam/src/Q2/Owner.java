@@ -8,7 +8,7 @@ public class Owner {
 	private String nic;
 
 	public Owner() {
-      
+
 	}
 
 	public Owner(String name, String nic, Date date) {
@@ -18,23 +18,23 @@ public class Owner {
 	}
 
 	public Owner(Owner owner) {
-        this(owner.name,owner.nic,owner.dob);
+		this(owner.name, owner.nic, owner.dob);
 	}
 
 	public void input() {
-         dob.input();
-         Scanner sc=new Scanner(System.in);
-         System.out.println("Enter name: ");
-         this.name=sc.nextLine();
-         System.out.println("Enter nic: ");
-         this.nic=sc.nextLine();
-         sc.close();
+		dob.input();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter name: ");
+		this.name = sc.nextLine();
+		System.out.println("Enter nic: ");
+		this.nic = sc.nextLine();
+		sc.close();
 	}
 
 	public void print() {
-        dob.print();
-        System.out.println("name: "+this.name);
-        System.out.println("NIC: "+this.nic);
+		dob.print();
+		System.out.println("name: " + this.name);
+		System.out.println("NIC: " + this.nic);
 	}
 
 	@Override

@@ -8,7 +8,7 @@ public class Owner {
 	private String nic;
 
 	public Owner() {
-
+         dob=new Date();
 	}
 
 	public Owner(String name, String nic, Date date) {

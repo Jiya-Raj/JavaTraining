@@ -8,7 +8,7 @@ public class Account {
 	private String number;
 
 	public Account() {
-
+       owner =new Owner();
 	}
 
 	public Account(Owner owner, float balance, String number) {
@@ -42,7 +42,7 @@ public class Account {
 		return "Owner: " + this.owner + " His Balance: " + this.balance + " Number: " + this.number;
 	}
 
-	public void deposit(int amount) {
+	public void deposit(float amount) {
 		if (amount <= 0) {
 			System.out.println("Invalid amount");
 			return;
@@ -51,7 +51,7 @@ public class Account {
 		this.balance += amount;
 	}
 
-	public void withdraw(int amount) {
+	public void withdraw(float amount) {
 		if (amount <= 0) {
 			System.out.println("Invalid amount");
 			return;

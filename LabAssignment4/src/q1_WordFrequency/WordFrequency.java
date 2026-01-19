@@ -9,7 +9,7 @@ public class WordFrequency {
 	 Map<String,Integer> wordFreq=new HashMap<>();
 	 
 	 try {
-		 List<String> lines=readFile("story.txt");
+		 List<String> lines=readFile("src\\q1_WordFrequency\\story");
 		 countWordFrequency(lines,wordFreq);
 		 printWordFrequency(wordFreq);
 	 }catch(IOException e) {

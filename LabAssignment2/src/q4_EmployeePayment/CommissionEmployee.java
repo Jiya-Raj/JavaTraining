@@ -1,0 +1,30 @@
+package q4_EmployeePayment;
+
+public class CommissionEmployee extends Employee {
+	private int commissionrate;
+	private int totalSales;
+
+	public CommissionEmployee(String name, String empID, int commissionrate, int totalSales) {
+		super(name, empID);
+		this.commissionrate = commissionrate;
+		this.totalSales = totalSales;
+	}
+
+	@Override
+	public int getPayment() {
+		return (commissionrate * totalSales) / 100;
+	}
+
+	public int getCommissionrate() {
+		return commissionrate;
+	}
+
+	public int getSales() {
+		return totalSales;
+	}
+
+	public void setCommissionrate(int commission) {
+		commissionrate = commission;
+	}
+
+}

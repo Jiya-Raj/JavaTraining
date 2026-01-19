@@ -1,0 +1,26 @@
+package q5_PaymentSystem;
+
+import java.util.ArrayList;
+
+import q4_EmployeePayment.*;
+
+public class PaymentApp {
+	public static void main(String[] args) {
+		ArrayList<Payable> payables = new ArrayList<>();
+
+		// Add Employees
+		payables.add(new SalariedEmployee("Alice", "E001", 1500));
+		payables.add(new HourlyEmployee("Bob", "E002", 40, 20));
+		payables.add(new CommissionEmployee("Charlie", "E003", 5000, 10));
+
+		// Add Invoices
+		payables.add(new Invoice("INV001", "Laptop", 2, 800));
+		payables.add(new Invoice("INV002", "Mouse", 10, 25));
+
+		
+		for (Payable p : payables) {
+			String type = p instanceof Employee ? "Employee" : "Invoice";
+			System.out.println(type + " Payment: $" + p.getPayment());
+		}
+	}
+}

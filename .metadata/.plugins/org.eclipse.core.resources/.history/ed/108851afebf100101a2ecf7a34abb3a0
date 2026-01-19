@@ -1,0 +1,90 @@
+package LabAssignment1;
+
+import java.util.Scanner;
+
+public class Q5_Attempt1_NextDate {
+	private static int MIN_Month = 1;
+	private static int MAX_Month = 12;
+
+	public static void main(String[] args) {
+		nextDate();
+	}
+
+	public static void nextDate() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter day: ");
+		int day = sc.nextInt();
+
+		System.out.println("Enter month: ");
+		int month = sc.nextInt();
+
+		System.out.println("Enter year: ");
+		int year = sc.nextInt();
+
+		sc.close();
+
+		// checking validity
+		if (!isValid(day, month, year)) {
+			System.out.println("Enter valid Fields");
+			return;
+		}
+
+		System.out.println("Today: " + day + "/" + month + "/" + year);
+
+		// computing next date
+		int nextDay = day;
+		int nextMonth = month;
+		int nextYear = year;
+
+		int daysInMonth = getDaysInMonth(year, month);
+		if (day < daysInMonth) {
+			nextDay++;
+		} else {
+			nextDay = 1;
+			if (month < MAX_Month) {
+				nextMonth++;
+			} else {
+				nextMonth = 1;
+				nextYear++;
+			}
+		}
+
+		System.out.println("Next Date: " + nextDay + "/" + nextMonth + "/" + nextYear);
+
+	}
+
+	public static boolean isValid(int day, int month, int year) {
+
+		if (year <= 0)
+			return false;
+
+		if (month > MAX_Month || month < MIN_Month)
+			return false;
+
+		int daysInMonth = getDaysInMonth(month, year);
+		return day >= 1 && day <= daysInMonth;
+	}
+
+	public static int getDaysInMonth(int month, int year) {
+		switch (month) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			return 31;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			return 30;
+		case 2:
+			return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0) ? 29 : 28;
+		default:
+			return 0;
+		}
+	}
+}

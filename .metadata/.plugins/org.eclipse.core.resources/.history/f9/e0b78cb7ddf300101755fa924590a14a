@@ -1,0 +1,49 @@
+package q1_WordFrequency;
+
+import java.io.*;
+import java.util.*;
+
+
+public class WordFrequency {
+ public static void main(String[] args) {
+	 Map<String,Integer> wordFreq=new HashMap<>();
+	 
+	 try {
+		 List<String> lines=readFile("storytxt");
+		 countWordFrequency(lines,wordFreq);
+		 printWordFrequency(wordFreq);
+	 }catch(IOException e) {
+		 System.out.println("Error reading File");
+	 }
+	 
+ }
+ 
+ private static List<String> readFile(String filePath) throws IOException {
+     List<String> lines = new ArrayList<>();
+     try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+         String line;
+         while ((line = br.readLine()) != null) {
+             if (!line.trim().isEmpty()) {
+                 lines.add(line.trim());
+             }
+         }
+     }
+     return lines;
+ }
+ 
+ private static void countWordFrequency(List<String> lines,Map<String,Integer> wordFreq) {
+	 for(String line:lines) {
+		 line = line.replaceAll("[^a-zA-Z0-9\\s]", "").toLowerCase();
+         String[] words = line.split("\\s+");
+         for (String word : words) {
+             if (!word.isEmpty()) {
+                 wordFreq.put(word, wordFreq.getOrDefault(word, 0) + 1);
+             }
+         }
+	 }
+ }
+ 
+ private static void printWordFrequency(Map<String,Integer> wordFreq) {
+	 
+ }
+}

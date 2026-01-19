@@ -1,0 +1,17 @@
+package Q1_circle;
+
+/*Using the provided UML (circle class diagram), implement:
+fields
+constructors
+methods (getters/setters or described methods)
+Create a test class that:
+creates Circle objects
+displays radius, area, and circumference
+tests multiple input values
+*/
+public class Attempt1_Circle {
+
+	public static void main(String[] args) {
+
+	}
+}

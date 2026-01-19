@@ -1,0 +1,36 @@
+package LabAssignment1;
+
+public class Q3_Attempt1_ArrayCopy {
+/*
+ * Requirements
+Return a new independent array with the same values.
+Do not return the same reference.
+Demonstrate independence by modifying the copied array.
+Corner Cases
+
+Empty array → return new empty array
+Single-element array → return new array
+ */
+	
+	public static void main(String[] args) {
+		copyOf(new int[] {1});
+	}
+	
+
+	
+	public static int[] copyOf(int[] array) {
+		if(array.length==0) {
+			return new int[]{};
+		}
+		
+		int size=array.length;
+		int[] copyOfArray=new int[size];
+		
+		for(int idx=0;idx<size;idx++) {
+			copyOfArray[idx]=array[idx];
+		}
+		
+		return copyOfArray;
+		
+	}
+}

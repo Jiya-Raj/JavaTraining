@@ -1,0 +1,40 @@
+package q4_EmployeePayment;
+
+public class HourlyEmployee extends Employee {
+	private int hoursWorked;
+	private int hourlyRate;
+
+	public HourlyEmployee(String name, String empID, int hoursWorked, int hourlyRate) {
+		super(name, empID);
+		this.hoursWorked = hoursWorked;
+		this.hourlyRate = hourlyRate;
+	}
+
+	public int getPayment() {
+		return hoursWorked * hourlyRate;
+	}
+
+	public int getHours() {
+		return hoursWorked;
+	}
+
+	public int getHourRate() {
+		return hourlyRate;
+	}
+
+	public void setHours(int hours) {
+		if (hours <= 0) {
+			System.out.println("Invalid number of hours");
+			return;
+		}
+		hoursWorked = hours;
+	}
+
+	public void setHourRate(int rate) {
+		if (rate <= 0) {
+			System.out.println("Invalid rate");
+			return;
+		}
+		hourlyRate = rate;
+	}
+}

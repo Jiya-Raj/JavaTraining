@@ -1,0 +1,18 @@
+package q4_EmployeePayment;
+
+public class SalariedEmployee extends Employee {
+	private int salary;
+
+	public SalariedEmployee(String name, String empID, int salary) {
+		super(name, empID);
+		this.salary = salary;
+	}
+
+	public int getPayment() {
+		return salary;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+}

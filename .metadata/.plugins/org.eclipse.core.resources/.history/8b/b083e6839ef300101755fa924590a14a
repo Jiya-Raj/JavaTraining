@@ -1,0 +1,22 @@
+package q2_BookStore;
+
+public class Book {
+	private String bookTitle;
+	private String author;
+	private String ISBN;
+	private int numOfCopies;
+
+	public Book(String bookTitle, String author, int copies) {
+		this.bookTitle = bookTitle;
+		this.author = author;
+		setNumOfCopies(copies);
+	}
+
+	public void setNumOfCopies(int copies) {
+		if (copies <= 0) {
+			throw new IllegalArgumentException("Number of Books cant be zero");
+		}
+		this.numOfCopies = copies;
+	}
+
+}

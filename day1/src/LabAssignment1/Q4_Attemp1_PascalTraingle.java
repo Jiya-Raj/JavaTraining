@@ -1,0 +1,30 @@
+package LabAssignment1;
+
+import java.util.Scanner;
+
+public class Q4_Attemp1_PascalTraingle {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter number of lines : ");
+		int lineNum = sc.nextInt();
+		sc.close();
+		pascal(lineNum);
+	}
+
+	public static void pascal(int lineNum) {
+		if (lineNum <= 0) {
+			System.out.println("The number of line should be greater than zero");
+			return;
+		}
+		int[][] triangle = new int[lineNum][lineNum];
+
+		for (int i = 1; i <= lineNum; i++) {
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j + " ");
+				triangle[i - 1][j - 1] = j;
+			}
+			System.out.println();
+		}
+	}
+}

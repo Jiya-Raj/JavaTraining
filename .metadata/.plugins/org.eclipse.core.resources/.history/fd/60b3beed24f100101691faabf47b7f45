@@ -1,0 +1,29 @@
+package LabAssignment1;
+/*
+Generate the first 20 Fibonacci numbers using iterative logic.
+Store all numbers in an array.
+Print the numbers in one line.
+Compute and print the average.
+*/
+
+public class Q1_Attempt1_Fibonacci {
+    
+	public static void main(String[] args) {
+		int num=20;
+		int[] fibonacci_series=new int[20];
+		int k=2;
+		fibonacci_series[0]=1;
+		fibonacci_series[1]=1;
+		int first=1;
+		int second=1;
+		for(int i=2;i<20;i++) {
+			fibonacci_series[k]=first+second;
+			first=second;
+			second=fibonacci_series[k];
+		    System.out.print(second+" ");
+			k++;
+		}
+	}
+	
+	
+}

@@ -20,39 +20,39 @@ public class BookStoreController {
 	}
 
 	public static void main(String[] args) {
-		new BookStoreController().BookStore();
-//		BookDao dao = new BookDaoJpaImpl();
-//        BookService service = new BookServiceImpl(dao);
-//
-//        // TC-1 Add books
-//        Book b1 = service.addBook(new Book("ISBN-1", "Java Basics", "James", 300));
-//        Book b2 = service.addBook(new Book("ISBN-2", "Spring Boot", "Pivotal", 500));
-//
-//        System.out.println("Added Books:");
-//        System.out.println(b1);
-//        System.out.println(b2);
-//
-//        // TC-2 Get all books
-//        System.out.println("\nAll Books:");
-//        List<Book> books = service.getAllBooks();
-//        books.forEach(System.out::println);
-//
-//        // TC-3 Get book by ID
-//        System.out.println("\nBook with ID " + b1.getId());
-//        System.out.println(service.getBookById(b1.getId()));
-//
-//        // TC-4 Update book
-//        service.updateBook(b1.getId(),
-//                new Book("ISBN-1", "Java Advanced", "James Gosling", 450));
-//
-//        System.out.println("\nAfter Update:");
-//        System.out.println(service.getBookById(b1.getId()));
-//
-//        // TC-5 Delete book
-//        service.deleteBook(b2.getId());
-//
-//        System.out.println("\nAfter Deletion:");
-//        service.getAllBooks().forEach(System.out::println);
+		//new BookStoreController().BookStore();
+		BookDao dao = new BookDaoJpaImpl();
+        BookService service = new BookServiceImpl(dao);
+
+        // TC-1 Add books
+        Book b1 = service.addBook(new Book("ISBN-1", "Java Basics", "James", 300));
+        Book b2 = service.addBook(new Book("ISBN-2", "Spring Boot", "Pivotal", 500));
+
+        System.out.println("Added Books:");
+        System.out.println(b1);
+        System.out.println(b2);
+
+        // TC-2 Get all books
+        System.out.println("\nAll Books:");
+        List<Book> books = service.getAllBooks();
+        books.forEach(System.out::println);
+
+        // TC-3 Get book by ID
+        System.out.println("\nBook with ID " + b1.getId());
+        System.out.println(service.getBookById(b1.getId()));
+
+        // TC-4 Update book
+        service.updateBook(b1.getId(),
+                new Book("ISBN-1", "Java Advanced", "James Gosling", 450));
+
+        System.out.println("\nAfter Update:");
+        System.out.println(service.getBookById(b1.getId()));
+
+        // TC-5 Delete book
+        service.deleteBook(b2.getId());
+
+        System.out.println("\nAfter Deletion:");
+        service.getAllBooks().forEach(System.out::println);
 	}
 
 	public void BookStore() {

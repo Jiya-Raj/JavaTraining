@@ -11,7 +11,7 @@ public class TraineeServiceImpl implements TraineeService {
 	private TraineeDao traineedao;
 
 	public TraineeServiceImpl() {
-		this.traineedao = new TraineeJpaDao();
+		this.traineedao = new TraineeJdbcDao();
 	}
 
 	@Override

@@ -14,7 +14,7 @@ public class TraineeManagementSystem {
 	TraineeService traineeservice;
 
 	TraineeManagementSystem() {
-		TraineeDao traineedao = new TraineeJpaDao();
+		TraineeDao traineedao = new TraineeJdbcDao();
 		this.traineeservice = new TraineeServiceImpl();
 		// traineedao = new TraineeJpaDao();
 	}
@@ -25,8 +25,8 @@ public class TraineeManagementSystem {
 
 	public void TMS() {
 		try {
-			//traineeservice.addTrainee(new Trainee("Vasu", "IT", 50.0));
-			System.out.println(traineeservice.findTraineeById(10));
+			//traineeservice.addTrainee(new Trainee("AnshJpa", "IT", 55.0));
+			System.out.println(traineeservice.findTraineeById(12));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

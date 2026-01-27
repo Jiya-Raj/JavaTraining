@@ -19,7 +19,12 @@ public class TraineeJpaDao implements TraineeDao {
 			em.persist(trainee);
 			tx.commit();
 		} catch (PersistenceException e) {
+			if (tx != null) {
+				tx.rollback();
+			}
 			throw new DaoException("Erro adding Trainee", e);
+		} finally {
+			em.close();
 		}
 
 	}
@@ -27,13 +32,16 @@ public class TraineeJpaDao implements TraineeDao {
 	@Override
 	public Trainee findTraineeById(int traineeId) {
 		EntityManager em = EntityManFactory.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		// EntityTransaction tx = em.getTransaction();
 		Trainee trainee = null;
 		try {
 			trainee = em.find(Trainee.class, traineeId);
 		} catch (PersistenceException e) {
 			throw new DaoException("Error Fetching Trainee", e);
+		} finally {
+			em.close();
 		}
+
 		return trainee;
 	}
 

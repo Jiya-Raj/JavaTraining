@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.app.Exception.ResourceNotFoundException;
 import com.app.dto.BookDto;
 import com.app.entity.Book;
 import com.app.repository.BookRepo;
@@ -28,7 +29,8 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public BookDto updateBook(Integer id, BookDto dto) {
-		Book BookToUpdate = repo.findById(id);
+		Book BookToUpdate = repo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book not found"));
+		;
 
 		BookToUpdate.setTitle(dto.getTitle());
 		BookToUpdate.setAuthor(dto.getAuthor());
@@ -41,8 +43,8 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public BookDto getBook(Integer id) {
-
-		return BookConverter.convertToBookDto(repo.findById(id));
+		Book book = repo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book not found"));
+		return BookConverter.convertToBookDto(book);
 	}
 
 	@Override

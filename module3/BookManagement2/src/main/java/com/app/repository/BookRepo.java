@@ -11,21 +11,26 @@ import com.app.entity.Book;
 
 @Repository
 public interface BookRepo extends JpaRepository<Book, Integer> {
-	@Query("select b from book b where b.Author=:author")
-	List<Book> findByAuthor(String author);
 
-	@Query("select b from book b where b.price<:price")
-	List<Book> findByPriceLessThan(Double price);
+    @Query("SELECT b FROM Book b WHERE b.author = :author")
+    List<Book> findByAuthor(@Param("author") String author);
 
-	@Query("delete  from book b where b.title=:title")
-	void deleteByTitle(String title);
+    @Query("SELECT b FROM Book b WHERE b.price < :price")
+    List<Book> findByPriceLessThan(@Param("price") Double price);
 
-	@Query("SELECT b FROM Book b WHERE b.title LIKE %:keyword%")
-	List<Book> searchByTitle(@Param("keyword") String keyword);
+    @Query("DELETE FROM Book b WHERE b.title = :title")
+    void deleteByTitle(@Param("title") String title);
 
-	@Query("SELECT b FROM Book b ORDER BY b.price DESC")
-	List<Book> sortByPriceDesc();
+    @Query("SELECT b FROM Book b WHERE b.title LIKE %:keyword%")
+    List<Book> searchByTitle(@Param("keyword") String keyword);
 
-	@Query(value = "SELECT * FROM books WHERE price BETWEEN ?1 AND ?2", nativeQuery = true)
-	List<Book> findByPriceRange(double min, double max);
+    @Query("SELECT b FROM Book b ORDER BY b.price DESC")
+    List<Book> sortByPriceDesc();
+
+    @Query(
+      value = "SELECT * FROM books WHERE price BETWEEN ?1 AND ?2",
+      nativeQuery = true
+    )
+    List<Book> findByPriceRange(double min, double max);
 }
+

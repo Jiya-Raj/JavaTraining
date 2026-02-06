@@ -1,7 +1,7 @@
 package com.app.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +9,7 @@ import com.app.entities.Trainee;
 import com.app.util.TraineeMapper;
 
 @Repository
-@Profile("jdbc")
+@Primary
 public class TraineeDaoJdbc implements TraineeDao {
 	private JdbcTemplate jdbcTemplate;
 

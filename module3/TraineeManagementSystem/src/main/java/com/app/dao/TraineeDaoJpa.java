@@ -1,6 +1,6 @@
 package com.app.dao;
 
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import com.app.entities.Trainee;
@@ -9,7 +9,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 @Repository
-@Profile("jpa")
+//@Primary
 public class TraineeDaoJpa implements TraineeDao {
 
 	@PersistenceContext

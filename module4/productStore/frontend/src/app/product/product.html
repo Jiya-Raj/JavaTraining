@@ -1,0 +1,23 @@
+<h2>Product Store</h2>
+
+<form (submit)="saveProduct()">
+  <input [(ngModel)]="product.name" name="name" placeholder="Name" required>
+  <input [(ngModel)]="product.price" name="price" placeholder="Price" required>
+  <input [(ngModel)]="product.category" name="category" placeholder="Category">
+  <input [(ngModel)]="product.quantity" name="quantity" placeholder="Quantity">
+
+  <button type="submit">
+    {{ isEditing ? 'Update Product' : 'Add Product' }}
+  </button>
+</form>
+
+<hr>
+
+<ul>
+  <li *ngFor="let p of products">
+    {{p.name}} - ₹{{p.price}} ({{p.category}})
+
+    <button (click)="editProduct(p)">Edit</button>
+    <button (click)="deleteProduct(p._id)">Delete</button>
+  </li>
+</ul>
